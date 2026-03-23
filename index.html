@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test Page</title>
 
-    <!-- GTM head -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+    </script>
+
     <script>
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
@@ -20,7 +23,6 @@
     </script>
   </head>
   <body>
-    <!-- GTM body -->
     <noscript>
       <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-MHZHP6BF"
@@ -31,20 +33,40 @@
     </noscript>
 
     <h1>Test Page</h1>
-    <button id="cta">CTAボタン</button>
+
+    <button id="header-cta">ヘッダーCTA</button>
+    <button id="main-cta">メインCTA</button>
+    <button id="footer-cta">フッターCTA</button>
 
     <script>
-      window.dataLayer = window.dataLayer || [];
-
-      document.getElementById("cta").addEventListener("click", function () {
+      function pushCtaEvent(name) {
         window.dataLayer.push({
           event: "cta_click",
-          button_name: "main_cta",
+          button_name: name,
         });
+      }
+
+      window.addEventListener("DOMContentLoaded", function () {
+        document
+          .getElementById("header-cta")
+          .addEventListener("click", function () {
+            pushCtaEvent("header_cta");
+          });
+
+        document
+          .getElementById("main-cta")
+          .addEventListener("click", function () {
+            pushCtaEvent("main_cta");
+          });
+
+        document
+          .getElementById("footer-cta")
+          .addEventListener("click", function () {
+            pushCtaEvent("footer_cta");
+          });
       });
     </script>
 
-    <!-- Clarity -->
     <script type="text/javascript">
       (function (c, l, a, r, i, t, y) {
         c[a] =
