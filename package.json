@@ -1,0 +1,14 @@
+{
+  "name": "web-analyze-test",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "analyze:web": "node scripts/run-analysis.mjs",
+    "improve:web": "node scripts/apply-improvements.mjs",
+    "autoloop:web": "npm run analyze:web && npm run improve:web"
+  },
+  "dependencies": {
+    "lighthouse": "^12.6.0"
+  }
+}

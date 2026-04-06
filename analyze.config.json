@@ -1,0 +1,9 @@
+{
+  "url": "https://dashing-sorbet-b3d22d.netlify.app/",
+  "thresholds": {
+    "performance": 0.8,
+    "accessibility": 0.9,
+    "bestPractices": 0.9,
+    "seo": 0.9
+  }
+}
